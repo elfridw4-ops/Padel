@@ -9,8 +9,8 @@ type Billing = "monthly" | "annual";
 
 const tiersConfig = [
   { style: "glass", featured: false, price: { monthly: 14, annual: 14 } },
-  { style: "ink", featured: true, price: { monthly: 59, annual: 49 } },
-  { style: "bone", featured: false, price: { monthly: 119, annual: 99 } },
+  { style: "ink", featured: true, price: { monthly: 39, annual: 32 } },
+  { style: "bone", featured: false, price: { monthly: 79, annual: 65 } },
 ] as const;
 
 export function Membership() {

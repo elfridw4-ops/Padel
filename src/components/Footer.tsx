@@ -2,12 +2,26 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ArrowRight, InstagramIcon, Logo, TikTokIcon, YouTubeIcon } from "@/components/icons";
 import { useI18n, fill } from "@/i18n/I18nProvider";
+import { type LegalDocKey } from "@/components/LegalPage";
 
-export function Footer() {
-  const { t } = useI18n();
+interface FooterProps {
+  onNavigateLegal?: (doc: LegalDocKey) => void;
+}
+
+export function Footer({ onNavigateLegal }: FooterProps) {
+  const { t, lang } = useI18n();
   const f = t.footer;
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
+
+  const navigateToLegal = (doc: LegalDocKey, slug: string) => {
+    if (onNavigateLegal) {
+      onNavigateLegal(doc);
+    } else {
+      window.history.pushState({ doc }, "", `/${slug}`);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+  };
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -160,20 +174,65 @@ export function Footer() {
               <TikTokIcon className="h-3 w-3" /> @dadju_sn
             </a>
           </p>
-          <ul className="flex flex-wrap gap-4 sm:gap-6">
+          <ul className="flex flex-wrap items-center gap-4 sm:gap-6">
             <li>
-              <a href="#" className="link-underline">
-                {f.privacy}
+              <a
+                href="/confidentialite"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToLegal("privacy", "confidentialite");
+                }}
+                className="link-underline hover:text-bone-50 transition-colors"
+              >
+                {lang === "fr" ? "Confidentialité (RGPD)" : "Privacy Policy"}
               </a>
             </li>
             <li>
-              <a href="#" className="link-underline">
-                {f.terms}
+              <a
+                href="/cgv"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToLegal("cgv", "cgv");
+                }}
+                className="link-underline hover:text-bone-50 transition-colors"
+              >
+                {lang === "fr" ? "CGV & Réservations" : "Terms (CGV)"}
               </a>
             </li>
             <li>
-              <a href="#" className="link-underline">
-                {f.houseRules}
+              <a
+                href="/remboursement"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToLegal("refund", "remboursement");
+                }}
+                className="link-underline hover:text-bone-50 transition-colors"
+              >
+                {lang === "fr" ? "Annulation & Remboursement" : "Refund Policy"}
+              </a>
+            </li>
+            <li>
+              <a
+                href="/reglement-interieur"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToLegal("rules", "reglement-interieur");
+                }}
+                className="link-underline hover:text-bone-50 transition-colors"
+              >
+                {lang === "fr" ? "Règlement Intérieur" : "House Rules"}
+              </a>
+            </li>
+            <li>
+              <a
+                href="/mentions-legales"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToLegal("legal-notice", "mentions-legales");
+                }}
+                className="link-underline hover:text-bone-50 transition-colors"
+              >
+                {lang === "fr" ? "Mentions Légales" : "Legal Notice"}
               </a>
             </li>
           </ul>
