@@ -490,14 +490,32 @@ export function LegalPage({ initialDoc = "cgv", onNavigateHome, onNavigateDoc }:
   // Update document title and metadata
   useEffect(() => {
     document.title = activeDoc.metaTitle;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", activeDoc.metaDesc);
-    }
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute("content", activeDoc.metaTitle);
-    }
+
+    const setMeta = (selector: string, attr: string, value: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement("meta");
+        const parts = selector.match(/\[(name|property)="([^"]+)"\]/);
+        if (parts) {
+          el.setAttribute(parts[1], parts[2]);
+          document.head.appendChild(el);
+        }
+      }
+      el.setAttribute(attr, value);
+    };
+
+    const host = window.location.origin;
+    const currentUrl = `${host}/${activeDoc.slug}`;
+    const imageUrl = `${host}/og-image.jpg`;
+
+    setMeta('meta[name="description"]', "content", activeDoc.metaDesc);
+    setMeta('meta[property="og:title"]', "content", activeDoc.metaTitle);
+    setMeta('meta[property="og:description"]', "content", activeDoc.metaDesc);
+    setMeta('meta[property="og:url"]', "content", currentUrl);
+    setMeta('meta[property="og:image"]', "content", imageUrl);
+    setMeta('meta[name="twitter:title"]', "content", activeDoc.metaTitle);
+    setMeta('meta[name="twitter:description"]', "content", activeDoc.metaDesc);
+    setMeta('meta[name="twitter:image"]', "content", imageUrl);
   }, [activeDoc]);
 
   const switchDoc = (key: LegalDocKey) => {
