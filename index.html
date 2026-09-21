@@ -10,14 +10,17 @@
     />
     <title>Terra Padel Club — Courts de Padel Couverts, Paris 11e</title>
 
-    <!-- OpenGraph & Social Cards -->
+    <!-- OpenGraph & Social Cards (Open Graph Protocol Compliant) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Terra Padel Club — Indoor Padel & Courts Panoramiques, Paris 11e" />
     <meta
       property="og:description"
       content="12 courts de padel panoramiques sur gazon terracotta. Réservation en ligne, partage de note Split Pay, packs de séances et accès prioritaire."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://terrapadel.fr/" />
+    <meta property="og:image" content="https://terrapadel.fr/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://terrapadel.fr/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Terra Padel Club Paris 11e - Courts Panoramiques" />
@@ -27,13 +30,37 @@
 
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@terrapadel" />
     <meta name="twitter:title" content="Terra Padel Club — Indoor Padel, Paris 11e" />
     <meta
       name="twitter:description"
       content="12 courts de padel panoramiques sur gazon terracotta à Paris 11e. Ouvert 06:00 - 00:00."
     />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="https://terrapadel.fr/og-image.jpg" />
+    <meta name="twitter:image:src" content="https://terrapadel.fr/og-image.jpg" />
     <meta name="twitter:image:alt" content="Terra Padel Club Paris 11e" />
+
+    <!-- Dynamic Origin Resolver for Social Link Sharing across Hostings (Vercel, Netlify, Custom Domain) -->
+    <script>
+      (function() {
+        try {
+          var origin = window.location.origin;
+          var href = window.location.href;
+          if (origin && !origin.startsWith('file:')) {
+            var fullImgUrl = origin + '/og-image.jpg';
+            var setAttr = function(selector, attr, val) {
+              var el = document.querySelector(selector);
+              if (el) el.setAttribute(attr, val);
+            };
+            setAttr('meta[property="og:url"]', 'content', href);
+            setAttr('meta[property="og:image"]', 'content', fullImgUrl);
+            setAttr('meta[property="og:image:secure_url"]', 'content', fullImgUrl);
+            setAttr('meta[name="twitter:image"]', 'content', fullImgUrl);
+            setAttr('meta[name="twitter:image:src"]', 'content', fullImgUrl);
+          }
+        } catch(e) {}
+      })();
+    </script>
 
     <!-- Schema.org SportsActivityLocation / SportsClub Structured Data -->
     <script type="application/ld+json">
