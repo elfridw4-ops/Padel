@@ -90,7 +90,7 @@ export function Membership() {
                   <p className={cn("mt-1 text-[0.92rem]", muted)}>{tier.tagline}</p>
 
                   <div className="mt-8 flex items-end gap-2">
-                    <span className="display-tight font-display text-[5rem] tabular-nums md:text-[5.5rem]">
+                    <span className="display-tight font-display text-5xl tabular-nums sm:text-[4.5rem] md:text-[5.5rem]">
                       <span className="align-top text-[0.45em] leading-none">€</span>
                       <span
                         key={`${price}-${locale}`}
@@ -99,7 +99,7 @@ export function Membership() {
                         {price.toLocaleString(locale)}
                       </span>
                     </span>
-                    <span className={cn("pb-3 text-[0.72rem] font-semibold uppercase tracking-[0.16em]", muted)}>
+                    <span className={cn("pb-2 sm:pb-3 text-[0.72rem] font-semibold uppercase tracking-[0.16em]", muted)}>
                       {tier.unit}
                     </span>
                   </div>

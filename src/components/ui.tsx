@@ -102,10 +102,10 @@ export function SectionHeading({
       </Eyebrow>
       <h2
         className={cn(
-          "display-tight mt-6 font-display uppercase",
+          "display-tight mt-6 font-display uppercase break-words",
           size === "xl"
-            ? "text-[clamp(3.3rem,9vw,8.5rem)]"
-            : "text-[clamp(2.4rem,6.5vw,6rem)]",
+            ? "text-[clamp(2.35rem,8.5vw,8.5rem)]"
+            : "text-[clamp(1.95rem,6vw,6rem)]",
         )}
       >
         {lines.map((line, i) => (

@@ -74,7 +74,7 @@ export function Hero() {
 
             <h1
               className={cn(
-                "display-tight mt-6 font-display text-[clamp(4.2rem,13vw,12.5rem)] uppercase",
+                "display-tight mt-6 font-display text-[clamp(2.75rem,11vw,12.5rem)] uppercase break-words",
                 ready && "is-visible",
               )}
             >

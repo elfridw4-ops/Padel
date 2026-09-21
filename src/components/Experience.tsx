@@ -74,13 +74,13 @@ export function Experience() {
                       >
                         0{i + 1}
                       </span>
-                      <span className="flex-1">
-                        <span className="flex items-center justify-between gap-6">
+                      <span className="flex-1 min-w-0">
+                        <span className="flex items-center justify-between gap-4 sm:gap-6">
                           <span
                             className={cn(
-                              "display-tight font-display text-[2.4rem] uppercase transition-[color,transform] duration-500 ease-[var(--ease-out-expo)] md:text-6xl",
+                              "display-tight font-display text-2xl uppercase transition-[color,transform] duration-500 ease-[var(--ease-out-expo)] sm:text-4xl md:text-5xl lg:text-6xl break-words",
                               isActive
-                                ? "translate-x-2 text-ink-950"
+                                ? "translate-x-1 sm:translate-x-2 text-ink-950"
                                 : "text-ink-950/70 group-hover:text-ink-950",
                             )}
                           >
@@ -88,7 +88,7 @@ export function Experience() {
                           </span>
                           <span
                             className={cn(
-                              "grid h-11 w-11 shrink-0 place-items-center rounded-full border transition-all duration-500",
+                              "grid h-9 w-9 sm:h-11 sm:w-11 shrink-0 place-items-center rounded-full border transition-all duration-500",
                               isActive
                                 ? "border-clay-500 bg-clay-500 text-bone-50"
                                 : "border-ink-950/20 text-ink-950",
@@ -96,7 +96,7 @@ export function Experience() {
                           >
                             <ArrowRight
                               className={cn(
-                                "h-4 w-4 transition-transform duration-500",
+                                "h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-500",
                                 isActive && "-rotate-45",
                               )}
                             />

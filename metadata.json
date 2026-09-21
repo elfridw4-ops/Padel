@@ -1,0 +1,6 @@
+{
+  "name": "Terra Padel Club",
+  "description": "Twelve panoramic indoor padel courts on terracotta turf in Paris 11e. Open 06:00 to midnight.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

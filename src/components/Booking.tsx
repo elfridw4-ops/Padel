@@ -75,14 +75,14 @@ export function Booking() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-14 grid min-w-0 gap-8 lg:mt-20 lg:grid-cols-12 lg:gap-12">
           {/* Selection */}
-          <Reveal className="lg:col-span-8">
-            <fieldset>
+          <Reveal className="min-w-0 w-full lg:col-span-8">
+            <fieldset className="min-w-0 w-full border-0 p-0 m-0">
               <legend className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-500">
                 {b.stepDate}
               </legend>
-              <div className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="mt-4 -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0">
                 {days.map((d, i) => (
                   <button
                     key={d.key}
@@ -90,7 +90,7 @@ export function Booking() {
                     onClick={() => chooseDay(i)}
                     aria-pressed={day === i}
                     className={cn(
-                      "flex min-w-[5.25rem] flex-1 flex-col items-center rounded-2xl border px-3 py-4 transition-all duration-500",
+                      "flex min-w-[4.6rem] shrink-0 flex-1 flex-col items-center rounded-2xl border px-2.5 py-3.5 transition-all duration-500 sm:min-w-[5.25rem] sm:px-3 sm:py-4",
                       day === i
                         ? "border-ink-950 bg-ink-950 text-bone-50"
                         : "border-ink-950/15 bg-transparent text-ink-950 hover:border-ink-950/50",
@@ -99,7 +99,7 @@ export function Booking() {
                     <span className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] opacity-70">
                       {d.weekday}
                     </span>
-                    <span className="mt-1 font-display text-4xl leading-none">{d.day}</span>
+                    <span className="mt-1 font-display text-3xl sm:text-4xl leading-none">{d.day}</span>
                     <span className="mt-1 text-[0.66rem] font-semibold uppercase tracking-[0.18em] opacity-70">
                       {d.month}
                     </span>
@@ -108,7 +108,7 @@ export function Booking() {
               </div>
             </fieldset>
 
-            <fieldset className="mt-10">
+            <fieldset className="mt-8 min-w-0 w-full border-0 p-0 sm:mt-10">
               <legend className="sr-only">{b.stepTime}</legend>
               <div className="flex flex-wrap items-center justify-between gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-500">
                 <span aria-hidden="true">{b.stepTime}</span>
@@ -139,7 +139,7 @@ export function Booking() {
                       }}
                       aria-pressed={selected}
                       className={cn(
-                        "relative rounded-xl border py-3.5 font-display text-2xl tracking-wide transition-all duration-500",
+                        "relative rounded-xl border py-3 font-display text-xl tracking-wide transition-all duration-500 sm:py-3.5 sm:text-2xl",
                         full && "cursor-not-allowed border-transparent bg-ink-950/[0.04] text-ink-400 line-through",
                         !full && !selected && "border-ink-950/15 hover:border-ink-950/50",
                         selected && "border-ink-950 bg-ink-950 text-bone-50",
@@ -161,7 +161,7 @@ export function Booking() {
               </div>
             </fieldset>
 
-            <fieldset className="mt-10">
+            <fieldset className="mt-8 min-w-0 w-full border-0 p-0 sm:mt-10">
               <legend className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-500">
                 {b.stepPlayers}
               </legend>
@@ -176,11 +176,11 @@ export function Booking() {
                     }}
                     aria-pressed={players === p}
                     className={cn(
-                      "flex items-center justify-between rounded-xl border px-5 py-4 transition-all duration-500",
+                      "flex items-center justify-between rounded-xl border px-4 py-3.5 transition-all duration-500 sm:px-5 sm:py-4",
                       players === p ? "border-ink-950 bg-ink-950 text-bone-50" : "border-ink-950/15 hover:border-ink-950/50",
                     )}
                   >
-                    <span className="font-display text-3xl leading-none">
+                    <span className="font-display text-2xl sm:text-3xl leading-none">
                       {p === 2 ? b.singles : b.doubles}
                     </span>
                     <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] opacity-70">
@@ -193,8 +193,8 @@ export function Booking() {
           </Reveal>
 
           {/* Summary */}
-          <Reveal delay={150} className="lg:col-span-4">
-            <aside className="grain relative overflow-hidden rounded-[1.25rem] bg-ink-950 p-7 text-bone-50 md:p-8 lg:sticky lg:top-28">
+          <Reveal delay={150} className="min-w-0 w-full lg:col-span-4">
+            <aside className="grain relative overflow-hidden rounded-[1.25rem] bg-ink-950 p-6 text-bone-50 sm:p-7 md:p-8 lg:sticky lg:top-28">
               <div className="court-lines pointer-events-none absolute inset-0 opacity-30" />
               <div className="relative">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/55">
@@ -225,7 +225,7 @@ export function Booking() {
                         <span className="ml-1 text-clay-300">· {b.peakTag}</span>
                       )}
                     </dt>
-                    <dd className="display-tight font-display text-5xl">
+                    <dd className="display-tight font-display text-4xl sm:text-5xl">
                       {slotLabel
                         ? new Intl.NumberFormat(locale, {
                             style: "currency",

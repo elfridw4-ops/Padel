@@ -50,10 +50,10 @@ export function Footer() {
             </div>
           </Reveal>
 
-          <Reveal delay={80} className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-5">
+          <Reveal delay={80} className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:col-span-5">
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/45">{f.visit}</p>
-              <address className="mt-5 space-y-1 text-[0.95rem] not-italic leading-relaxed text-bone-50/85">
+              <address className="mt-4 space-y-1 text-[0.95rem] not-italic leading-relaxed text-bone-50/85 sm:mt-5">
                 <p>48 rue de la Roquette</p>
                 <p>75011 Paris</p>
                 <p className="pt-2">
@@ -70,7 +70,7 @@ export function Footer() {
             </div>
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/45">{f.hours}</p>
-              <ul className="mt-5 space-y-1 text-[0.95rem] leading-relaxed text-bone-50/85">
+              <ul className="mt-4 space-y-1 text-[0.95rem] leading-relaxed text-bone-50/85 sm:mt-5">
                 <li className="flex justify-between gap-4">
                   <span>{f.weekdays}</span>
                   <span>06:00 – 00:00</span>
@@ -88,7 +88,7 @@ export function Footer() {
             </div>
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/45">{f.explore}</p>
-              <ul className="mt-5 space-y-1.5 text-[0.95rem] leading-relaxed text-bone-50/85">
+              <ul className="mt-4 space-y-1.5 text-[0.95rem] leading-relaxed text-bone-50/85 sm:mt-5">
                 {explore.map((l) => (
                   <li key={l.href}>
                     <a href={l.href} className="link-underline">
@@ -104,7 +104,7 @@ export function Footer() {
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/45">
               {f.newsletter}
             </p>
-            <p className="mt-5 text-[0.95rem] leading-relaxed text-bone-50/65">{f.newsletterBody}</p>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-bone-50/65 sm:mt-5">{f.newsletterBody}</p>
             <form onSubmit={submit} className="mt-5">
               <label htmlFor="newsletter" className="sr-only">
                 {f.emailLabel}
@@ -138,16 +138,16 @@ export function Footer() {
         </div>
 
         {/* Oversized wordmark */}
-        <Reveal variant="none" className="mt-20 md:mt-28">
+        <Reveal variant="none" className="mt-16 overflow-hidden md:mt-24">
           <p
             aria-hidden="true"
-            className="display-tight line-mask select-none font-display text-[clamp(5rem,19.5vw,19rem)] uppercase text-bone-50/[0.07]"
+            className="display-tight line-mask select-none font-display text-[clamp(3.5rem,16.5vw,19rem)] uppercase text-bone-50/[0.07]"
           >
             <span className="block">Terra Padel</span>
           </p>
         </Reveal>
 
-        <div className="flex flex-col gap-3 border-t border-bone-50/10 py-6 text-[0.72rem] text-bone-50/45 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t border-bone-50/10 py-6 text-[0.72rem] text-bone-50/45 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           <p>{fill(f.copyright, { year: new Date().getFullYear() })}</p>
           <p>
             {f.photoCredit}{" "}
@@ -160,7 +160,7 @@ export function Footer() {
               <TikTokIcon className="h-3 w-3" /> @dadju_sn
             </a>
           </p>
-          <ul className="flex gap-6">
+          <ul className="flex flex-wrap gap-4 sm:gap-6">
             <li>
               <a href="#" className="link-underline">
                 {f.privacy}

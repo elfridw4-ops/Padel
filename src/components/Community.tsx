@@ -80,7 +80,7 @@ export function Community() {
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-bone-50/55">
                   {c.onTikTok}
                 </p>
-                <p className="display-tight mt-3 font-display text-[clamp(3rem,7vw,5.25rem)] uppercase">
+                <p className="display-tight mt-3 font-display text-[clamp(2.2rem,7vw,5.25rem)] uppercase break-words">
                   {c.handle}
                 </p>
                 <p className="mt-4 max-w-xs text-[0.95rem] leading-relaxed text-bone-50/70">{c.tiktokBody}</p>
@@ -116,10 +116,10 @@ export function Community() {
         </div>
 
         {/* Quotes */}
-        <div className="mt-20 grid gap-10 border-t border-bone-50/10 pt-12 md:grid-cols-3 md:gap-8 lg:mt-28">
+        <div className="mt-16 grid gap-8 border-t border-bone-50/10 pt-10 sm:mt-20 md:grid-cols-3 md:gap-8 md:pt-12 lg:mt-28">
           {c.quotes.map((q, i) => (
             <Reveal key={q.name} delay={i * 120} as="blockquote" className="flex flex-col">
-              <p className="font-display text-[1.9rem] leading-[1.05] tracking-[0.02em] text-bone-50/90 md:text-[2.1rem]">
+              <p className="font-display text-2xl sm:text-[1.9rem] leading-[1.08] tracking-[0.02em] text-bone-50/90 md:text-[2.1rem]">
                 “{q.text}”
               </p>
               <footer className="mt-5 flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em]">

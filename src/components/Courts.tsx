@@ -57,7 +57,7 @@ export function Courts() {
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-clay-300">
                     {court.spec}
                   </p>
-                  <h3 className="display-tight mt-2 font-display text-[2.6rem] uppercase md:text-5xl">
+                  <h3 className="display-tight mt-2 font-display text-3xl uppercase sm:text-4xl md:text-5xl">
                     {court.title}
                   </h3>
                   <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-700 ease-[var(--ease-out-expo)] group-hover:grid-rows-[1fr]">

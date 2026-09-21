@@ -50,13 +50,13 @@ function Stat({ value, decimals = 0, prefix = "", suffix = "", label, delay = 0 
   });
 
   return (
-    <div ref={ref} className="border-t border-ink-950/15 pt-5">
-      <p className="display-tight font-display text-[clamp(3.2rem,6vw,5.5rem)] text-ink-950 tabular-nums">
+    <div ref={ref} className="border-t border-ink-950/15 pt-4 sm:pt-5">
+      <p className="display-tight font-display text-[clamp(2.5rem,5.5vw,5.5rem)] text-ink-950 tabular-nums">
         {prefix}
         {formatted}
         <span className="text-clay-500">{suffix}</span>
       </p>
-      <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink-500">{label}</p>
+      <p className="mt-1.5 sm:mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink-500">{label}</p>
     </div>
   );
 }

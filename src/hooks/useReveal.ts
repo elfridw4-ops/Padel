@@ -13,8 +13,8 @@ interface RevealOptions {
  */
 export function useReveal<T extends HTMLElement = HTMLDivElement>({
   once = true,
-  threshold = 0.18,
-  rootMargin = "0px 0px -8% 0px",
+  threshold = 0.08,
+  rootMargin = "0px 0px -4% 0px",
 }: RevealOptions = {}) {
   const ref = useRef<T | null>(null);
   const [visible, setVisible] = useState(false);
